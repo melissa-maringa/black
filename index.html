@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Black Friday Melissa - Maringá Park</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <style>
+        :root {
+            --bf-black: #000000;
+            --bf-yellow: #ffcc00;
+            --bf-red: #ff3b30;
+            --melissa-bg: #f2f3f5;
+            --melissa-card: #ffffff;
+            --text-dark: #1a1a1a;
+            --whatsapp-green: #25D366;
+        }
+
+        body { background-color: var(--melissa-bg); color: var(--text-dark); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; padding-bottom: 4rem; -webkit-font-smoothing: antialiased; }
+        
+        /* Tema Black Friday - Header */
+        .header-box { background-color: var(--bf-black); padding: 2rem 1rem 1.5rem 1rem; text-align: center; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); position: relative; z-index: 10; border-bottom: 3px solid var(--bf-yellow); }
+        .promo-pill-badge { display: inline-block; background-color: var(--bf-red); color: #ffffff; font-weight: 900; font-size: 0.8rem; padding: 0.4rem 1.2rem; border-radius: 50px; text-transform: uppercase; margin-bottom: 1rem; animation: pulse 1.5s infinite; letter-spacing: 1px; box-shadow: 0 0 15px rgba(255, 59, 48, 0.5); }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.08); } 100% { transform: scale(1); } }
+        
+        .brand-melissa-text { font-size: 3.2rem; font-weight: 900; color: #ffffff; letter-spacing: -1.5px; line-height: 1; margin: 0; text-transform: lowercase; }
+        .header-subtitle { color: var(--bf-yellow); font-weight: 800; font-size: 0.9rem; letter-spacing: 1px; margin-top: 0.5rem; margin-bottom: 0; text-transform: uppercase; }
+        
+        /* Tema Black Friday - Categorias */
+        .category-wrapper { position: sticky; top: 0; z-index: 100; background-color: var(--bf-black); padding: 0.8rem 0; box-shadow: 0 4px 10px rgba(0,0,0,0.15); }
+        .category-container { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; padding: 0 1rem; }
+        .category-container::-webkit-scrollbar { display: none; }
+        .btn-cat { background-color: #222222; color: #aaaaaa; border: 1px solid #333; border-radius: 8px; padding: 0.5rem 1rem; font-size: 0.85rem; font-weight: 700; white-space: nowrap; transition: all 0.2s ease; }
+        .btn-cat.active { background-color: var(--bf-yellow); color: var(--bf-black); border-color: var(--bf-yellow); font-weight: 900; }
+        
+        /* Produtos */
+        .product-grid { padding: 0 0.5rem; margin-top: 1.5rem !important; }
+        .product-card { background-color: var(--melissa-card); border-radius: 12px; overflow: hidden; margin-bottom: 1.25rem; box-shadow: 0 6px 16px rgba(0,0,0,0.08); position: relative; border: 1px solid #eaeaea; }
+        
+        /* Etiqueta de Desconto Black Friday */
+        .discount-badge { position: absolute; top: 12px; right: 12px; background-color: var(--bf-black); color: var(--bf-yellow); font-weight: 900; font-size: 0.9rem; padding: 0.4rem 0.8rem; border-radius: 8px; z-index: 2; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); letter-spacing: -0.5px; border: 1px solid var(--bf-yellow); }
+        
+        .img-container { width: 100%; padding-top: 100%; position: relative; background-color: #f8f8f8; }
+        .product-img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
+        .product-info { padding: 1rem; }
+        .product-title { font-size: 1.1rem; font-weight: 800; color: var(--text-dark); margin-bottom: 0.3rem; line-height: 1.2; }
+        
+        .price-container { display: flex; align-items: baseline; gap: 8px; margin-bottom: 0.5rem; }
+        .price-old { color: #999; text-decoration: line-through; font-size: 0.9rem; font-weight: 600; margin: 0; }
+        .price-new { color: var(--bf-black); font-size: 1.8rem; font-weight: 900; margin: 0; letter-spacing: -1px; }
+        
+        .sizes-box { background-color: #fff9e6; border: 1px dashed var(--bf-yellow); border-radius: 8px; padding: 0.6rem; margin-bottom: 1rem; text-align: center; }
+        .sizes-label { font-size: 0.7rem; color: #666; font-weight: 800; text-transform: uppercase; display: block; margin-bottom: 0.2rem; }
+        .sizes-numbers { font-size: 1rem; font-weight: 900; color: var(--bf-black); }
+        
+        .btn-whatsapp { background-color: var(--whatsapp-green); color: #ffffff; font-size: 1rem; font-weight: 900; border-radius: 8px; padding: 0.9rem; text-align: center; text-decoration: none; display: block; width: 100%; border: none; box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3); text-transform: uppercase; letter-spacing: 0.5px; }
+        .btn-whatsapp:active { transform: scale(0.98); background-color: #1ebc57; }
+        
+        .legal-box { background-color: var(--bf-black); padding: 1.5rem 1rem; color: #888; font-size: 0.75rem; text-align: center; line-height: 1.5; margin-top: 2rem; border-top: 2px solid #222; }
+        .legal-box b { color: var(--bf-yellow); }
+        
+        @media (min-width: 576px) { .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; } }
+    </style>
+</head>
+<body>
+
+    <header class="header-box">
+        <div class="promo-pill-badge"><i class="fa-solid fa-bolt"></i> BLACK FRIDAY WHATSAPP</div>
+        <h1 class="brand-melissa-text">melissa</h1>
+        <h2 class="header-subtitle">Maringá Park • Ofertas Exclusivas</h2>
+    </header>
+
+    <div class="category-wrapper">
+        <div class="category-container">
+            <button class="btn-cat active" onclick="filterCategory('todos', this)">TUDO</button>
+            <button class="btn-cat" onclick="filterCategory('bebe', this)">MINI (17 ao 28)</button>
+            <button class="btn-cat" onclick="filterCategory('infantil', this)">MEL (26 ao 33)</button>
+            <button class="btn-cat" onclick="filterCategory('adulto', this)">ADULTO (33 ao 40)</button>
+        </div>
+    </div>
+
+    <div class="container product-grid" id="productGrid">
+        <p class="text-center mt-4 w-100 fw-bold">Carregando as ofertas de Black Friday...</p>
+    </div>
+
+    <footer class="legal-box">
+        <b>⚠️ ESTOQUE LIMITADÍSSIMO!</b><br>
+        Os preços de Black Friday podem esgotar a qualquer momento. Venda sujeita à disponibilidade de numeração na hora do atendimento pelo WhatsApp.
+    </footer>
+
+    <script>
+        const whatsappNumber = "554499814406"; 
+        let products = []; 
+
+        function formatMoney(value) { return value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }); }
+        function calculateDiscount(oldP, newP) { return Math.round(((oldP - newP) / oldP) * 100); }
+
+        function getWhatsAppLink(product) {
+            const tituloLimpo = product.title.trim();
+            // Mensagem atualizada para o clima de Black Friday
+            const text = `Oi Léo! Tudo bem? Vi as ofertas de *Black Friday* e quero verificar a disponibilidade deste modelo:\n\n*${tituloLimpo}*\nPor: *${formatMoney(product.pricePromo)}*`;
+            return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
+        }
+
+        function shuffleArray(array) {
+            let currentIndex = array.length, randomIndex;
+            while (currentIndex !== 0) {
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex--;
+                [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+            }
+            return array;
+        }
+
+        // --- SISTEMA DE TENTATIVA INTELIGENTE DE FOTO (.avif -> .webp -> .jpg -> .png) ---
+        function handleImageError(imgElement, reference) {
+            const currentSrc = imgElement.src;
+            
+            if (currentSrc.includes('.avif') && !imgElement.dataset.triedWebp) {
+                imgElement.dataset.triedWebp = "true";
+                imgElement.src = currentSrc.replace('.avif', '.webp');
+            } else if (currentSrc.includes('.webp') && !imgElement.dataset.triedJpg) {
+                imgElement.dataset.triedJpg = "true";
+                imgElement.src = currentSrc.replace('.webp', '.jpg');
+            } else if (currentSrc.includes('.jpg') && !imgElement.dataset.triedPng) {
+                imgElement.dataset.triedPng = "true";
+                imgElement.src = currentSrc.replace('.jpg', '.png');
+            } else if (!imgElement.dataset.triedDefaultAvif) {
+                imgElement.dataset.triedDefaultAvif = "true";
+                imgElement.src = `img/${reference}.avif`; 
+            } else if (!imgElement.dataset.triedDefaultWebp) {
+                imgElement.dataset.triedDefaultWebp = "true";
+                imgElement.src = `img/${reference}.webp`; 
+            } else if (!imgElement.dataset.triedDefaultJpg) {
+                imgElement.dataset.triedDefaultJpg = "true";
+                imgElement.src = `img/${reference}.jpg`; 
+            } else if (!imgElement.dataset.triedDefaultPng) {
+                imgElement.dataset.triedDefaultPng = "true";
+                imgElement.src = `img/${reference}.png`; 
+            } else {
+                imgElement.src = 'https://via.placeholder.com/500x500?text=Sem+Foto'; 
+            }
+        }
+
+        function renderProducts(items) {
+            const grid = document.getElementById('productGrid');
+            grid.innerHTML = '';
+
+            if(items.length === 0) {
+                grid.innerHTML = '<div class="text-center mt-4 w-100 fw-bold"><p>Nenhum produto nesta categoria.</p></div>';
+                return;
+            }
+
+            const randomizedItems = shuffleArray([...items]);
+
+            randomizedItems.forEach(product => {
+                const discount = calculateDiscount(product.priceOriginal, product.pricePromo);
+                const imgName = product.imageFile || product.reference;
+                
+                const cardHtml = `
+                    <div class="product-card">
+                        <div class="discount-badge"><i class="fa-solid fa-tag"></i> ${discount}% OFF</div>
+                        <div class="img-container">
+                            <img src="img/${imgName}.avif" alt="${product.title}" class="product-img" loading="lazy" onerror="handleImageError(this, '${product.reference}')">
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">${product.title}</h3>
+                            <div class="price-container">
+                                <p class="price-new">${formatMoney(product.pricePromo)}</p>
+                                <p class="price-old">${formatMoney(product.priceOriginal)}</p>
+                            </div>
+                            <div class="sizes-box">
+                                <span class="sizes-label">Números na Promoção:</span>
+                                <span class="sizes-numbers">${product.sizes}</span>
+                            </div>
+                            <a href="${getWhatsAppLink(product)}" target="_blank" class="btn-whatsapp">
+                                <i class="fa-brands fa-whatsapp"></i> Quero no WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                `;
+                grid.innerHTML += cardHtml;
+            });
+        }
+
+        function filterCategory(category, button) {
+            document.querySelectorAll('.btn-cat').forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+
+            if (category === 'todos') { renderProducts(products); } 
+            else { renderProducts(products.filter(p => p.category === category)); }
+            
+            window.scrollTo({ top: document.querySelector('.category-wrapper').offsetTop, behavior: 'smooth' });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => { 
+            fetch('produtos.json')
+                .then(res => res.json())
+                .then(data => {
+                    products = data;
+                    renderProducts(products);
+                })
+                .catch(e => {
+                    console.log('Erro ao carregar o JSON.', e);
+                    document.getElementById('productGrid').innerHTML = '<div class="text-center mt-4 w-100 fw-bold"><p>Erro ao carregar as ofertas. Tente recarregar a página.</p></div>';
+                });
+        });
+    </script>
+</body>
+</html>
