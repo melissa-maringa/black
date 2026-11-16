@@ -39,7 +39,7 @@
         @media (min-width: 576px) { .product-grid { grid-template-columns: 1fr 1fr; gap: 15px; } }
         @media (min-width: 900px) { .product-grid { grid-template-columns: repeat(3, 1fr); } }
 
-        /* Card Otimizado com content-visibility */
+        /* Card Otimizado */
         .product-card { 
             background-color: var(--melissa-card); 
             border-radius: 12px; 
@@ -69,14 +69,11 @@
         .btn-whatsapp { background-color: var(--whatsapp-green); color: #ffffff; font-size: 0.95rem; font-weight: 900; border-radius: 8px; padding: 0.85rem; text-align: center; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; text-transform: uppercase; letter-spacing: 0.5px; }
         .btn-whatsapp:active { transform: scale(0.98); background-color: #1ebc57; }
 
-        /* Botão Carregar Mais */
-        .load-more-wrapper { text-align: center; margin-top: 2rem; }
-        .btn-load-more { background-color: var(--bf-black); color: var(--bf-yellow); border: 2px solid var(--bf-yellow); font-weight: 900; font-size: 1rem; padding: 0.9rem 2rem; border-radius: 50px; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; }
-        .btn-load-more:active { transform: scale(0.97); }
-        .items-counter { font-size: 0.8rem; color: #666; margin-top: 0.6rem; font-weight: 600; }
+        /* Sentinela do Scroll Infinito */
+        #scrollSentinel { height: 40px; margin-top: 1rem; display: flex; align-items: center; justify-content: center; color: #666; font-size: 0.85rem; font-weight: 700; }
         
         .status-msg { text-align: center; margin-top: 2rem; font-weight: 700; grid-column: 1 / -1; }
-        .legal-box { background-color: var(--bf-black); padding: 1.5rem 1rem; color: #888; font-size: 0.75rem; text-align: center; line-height: 1.5; margin-top: 2.5rem; border-top: 2px solid #222; }
+        .legal-box { background-color: var(--bf-black); padding: 1.5rem 1rem; color: #888; font-size: 0.75rem; text-align: center; line-height: 1.5; margin-top: 2rem; border-top: 2px solid #222; }
         .legal-box b { color: var(--bf-yellow); }
     </style>
 </head>
@@ -101,10 +98,8 @@
         <div class="product-grid" id="productGrid">
             <p class="status-msg">Carregando as ofertas de Black Friday...</p>
         </div>
-        <div class="load-more-wrapper" id="loadMoreWrapper" style="display: none;">
-            <button class="btn-load-more" onclick="loadMore()">Ver mais ofertas</button>
-            <p class="items-counter" id="itemsCounter"></p>
-        </div>
+        <!-- Elemento invisível que dispara o carregamento automático ao chegar no fim -->
+        <div id="scrollSentinel"></div>
     </div>
 
     <footer class="legal-box">
@@ -137,20 +132,14 @@
             return array;
         }
 
-        // Fallback leve começando direto em .webp
+        // Apenas .webp (imageFile -> reference -> placeholder)
         function handleImageError(img, ref) {
-            const step = Number(img.dataset.step || 0);
-            const fallbacks = [
-                `img/${ref}.webp`,
-                img.src.replace('.webp', '.jpg'),
-                `img/${ref}.jpg`,
-                'https://via.placeholder.com/500x500?text=Sem+Foto'
-            ];
-            if (step < fallbacks.length) {
-                img.dataset.step = step + 1;
-                img.src = fallbacks[step];
+            if (!img.dataset.triedRef) {
+                img.dataset.triedRef = "true";
+                img.src = `img/${ref}.webp`;
             } else {
                 img.onerror = null;
+                img.src = 'https://via.placeholder.com/500x500?text=Sem+Foto';
             }
         }
 
@@ -183,14 +172,15 @@
 
         function renderBatch() {
             const grid = document.getElementById('productGrid');
-            const wrapper = document.getElementById('loadMoreWrapper');
-            const counter = document.getElementById('itemsCounter');
+            const sentinel = document.getElementById('scrollSentinel');
 
             if (currentFiltered.length === 0) {
                 grid.innerHTML = '<p class="status-msg">Nenhum produto nesta categoria.</p>';
-                wrapper.style.display = 'none';
+                sentinel.textContent = '';
                 return;
             }
+
+            if (renderedCount >= currentFiltered.length) return;
 
             const nextSlice = currentFiltered.slice(renderedCount, renderedCount + ITEMS_PER_PAGE);
             const htmlChunk = nextSlice.map(createCardHTML).join('');
@@ -203,16 +193,23 @@
 
             renderedCount += nextSlice.length;
 
-            if (renderedCount < currentFiltered.length) {
-                wrapper.style.display = 'block';
-                counter.textContent = `Mostrando ${renderedCount} de ${currentFiltered.length} ofertas`;
-            } else {
-                wrapper.style.display = 'none';
-            }
+            sentinel.textContent = renderedCount < currentFiltered.length 
+                ? 'Carregando mais ofertas...' 
+                : `Você viu todas as ${currentFiltered.length} ofertas!`;
         }
 
-        function loadMore() {
-            renderBatch();
+        // Observador para Scroll Infinito (dispara 400px antes de chegar no fim da página)
+        const observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting && renderedCount < currentFiltered.length) {
+                renderBatch();
+            }
+        }, { rootMargin: '400px' });
+
+        function isMelCategory(product) {
+            if (product.category === 'infantil') return true;
+            if (product.category !== 'bebe') return false;
+            // Verifica se o título tem "Inf" (ex: Coturno Inf, Aranha Inf) ou numeração 28 ao 33
+            return /\bInf\b/i.test(product.title) || /\b(28|29|30|31|32|33)\b/.test(product.sizes);
         }
 
         function filterCategory(category, button) {
@@ -223,8 +220,7 @@
             if (category === 'todos') {
                 filtered = allProducts;
             } else if (category === 'infantil') {
-                // Filtra itens "Inf" ou numeração 28-33 mesmo que no JSON estejam marcados como "bebe"
-                filtered = allProducts.filter(p => p.category === 'infantil' || (p.category === 'bebe' && /\b(28|29|30|31|32|33)\b/.test(p.sizes)));
+                filtered = allProducts.filter(isMelCategory);
             } else {
                 filtered = allProducts.filter(p => p.category === category);
             }
@@ -237,6 +233,8 @@
         }
 
         document.addEventListener('DOMContentLoaded', () => { 
+            observer.observe(document.getElementById('scrollSentinel'));
+
             fetch('produtos.json')
                 .then(res => res.json())
                 .then(data => {
