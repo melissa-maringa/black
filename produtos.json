@@ -10,15 +10,6 @@
   },
   {
     "category": "adulto",
-    "title": "Melissa Heart Lover Keyring (preto/prata)",
-    "priceOriginal": 49.9,
-    "pricePromo": 19.9,
-    "sizes": "UN",
-    "reference": "34434",
-    "imageFile": "34434-preto-prata"
-  },
-  {
-    "category": "adulto",
     "title": "Melissa Pet Collar (amarelo)",
     "priceOriginal": 69.9,
     "pricePromo": 27.9,
@@ -106,15 +97,6 @@
     "sizes": "UN",
     "reference": "34508",
     "imageFile": "34508-azul-vermelho"
-  },
-  {
-    "category": "adulto",
-    "title": "Melissa Coturno Ad (s:preto/preto)",
-    "priceOriginal": 369.9,
-    "pricePromo": 147.9,
-    "sizes": "36",
-    "reference": "32822",
-    "imageFile": "32822-s-preto-preto"
   },
   {
     "category": "adulto",
@@ -667,15 +649,6 @@
   },
   {
     "category": "bebe",
-    "title": "Mini Melissa Cozy Slide Inf (rosa/glitter)",
-    "priceOriginal": 179.9,
-    "pricePromo": 71.9,
-    "sizes": "28",
-    "reference": "35685",
-    "imageFile": "35685-rosa-glitter"
-  },
-  {
-    "category": "bebe",
     "title": "Mini Melissa Duo M Lover Slide Inf (rosa)",
     "priceOriginal": 129.9,
     "pricePromo": 64.9,
@@ -814,7 +787,7 @@
     "title": "Mini Melissa Hip Daydream Bb (rosa Glitter)",
     "priceOriginal": 139.9,
     "pricePromo": 69.9,
-    "sizes": "17/18, 19, 20/21, 22, 26/27",
+    "sizes": "17/18, 19",
     "reference": "35903",
     "imageFile": "35903-rosa-glitter"
   },
@@ -826,15 +799,6 @@
     "sizes": "17/18, 19",
     "reference": "35903",
     "imageFile": "35903-rosa-glitter"
-  },
-  {
-    "category": "bebe",
-    "title": "Mini Melissa Hip Daydream Bb (preto)",
-    "priceOriginal": 139.9,
-    "pricePromo": 69.9,
-    "sizes": "22",
-    "reference": "35903",
-    "imageFile": "35903-preto"
   },
   {
     "category": "bebe",
@@ -1210,7 +1174,7 @@
     "title": "Melissa Pop Platform Ad (preto)",
     "priceOriginal": 299.9,
     "pricePromo": 179.9,
-    "sizes": "33/34",
+    "sizes": "33/34, 35",
     "reference": "38134",
     "imageFile": "38134-preto"
   },
@@ -1720,15 +1684,6 @@
   },
   {
     "category": "adulto",
-    "title": "Melissa Flox Unissex Ad (marrom)",
-    "priceOriginal": 189.9,
-    "pricePromo": 94.9,
-    "sizes": "35",
-    "reference": "31909",
-    "imageFile": "31909-marrom"
-  },
-  {
-    "category": "adulto",
     "title": "Melissa Free Possession Ad (bege)",
     "priceOriginal": 199.9,
     "pricePromo": 79.9,
@@ -2173,7 +2128,7 @@
     "title": "Mini Melissa Flox Bb (rosa Glitter)",
     "priceOriginal": 149.9,
     "pricePromo": 74.9,
-    "sizes": "17/18, 20/21, 25",
+    "sizes": "17/18, 20/21, 22, 25",
     "reference": "31675",
     "imageFile": "31675-rosa-glitter"
   },
