@@ -1318,7 +1318,7 @@
     "title": "Melissa Sun Capri Platform Ad (bege)",
     "priceOriginal": 189.9,
     "pricePromo": 113.9,
-    "sizes": "35, 36, 38",
+    "sizes": "35, 36",
     "reference": "38132",
     "imageFile": "38132-bege"
   },
@@ -1348,6 +1348,15 @@
     "sizes": "38, 39/40",
     "reference": "38062",
     "imageFile": "38062-preto"
+  },
+  {
+    "category": "adulto",
+    "title": "Melissa Sun Leblon Ad (marrom)",
+    "priceOriginal": 199.9,
+    "pricePromo": 119.9,
+    "sizes": "38",
+    "reference": "38062",
+    "imageFile": "38062-marrom"
   },
   {
     "category": "adulto",
@@ -1390,7 +1399,7 @@
     "title": "Melissa Up Platform Ad (marrom)",
     "priceOriginal": 319.9,
     "pricePromo": 191.9,
-    "sizes": "33/34, 35, 37",
+    "sizes": "33/34, 35, 37, 38",
     "reference": "37065",
     "imageFile": "37065-marrom"
   },
@@ -1624,7 +1633,7 @@
     "title": "Melissa Flox Bold Ad (branco/marrom)",
     "priceOriginal": 249.9,
     "pricePromo": 149,
-    "sizes": "35, 37, 38",
+    "sizes": "35, 37",
     "reference": "38191",
     "imageFile": "38191-branco-marrom"
   },
@@ -1669,7 +1678,7 @@
     "title": "Melissa Glide Ad (preto/tartaruga)",
     "priceOriginal": 269.9,
     "pricePromo": 107.9,
-    "sizes": "36, 37",
+    "sizes": "36",
     "reference": "37867",
     "imageFile": "37867-preto-tartaruga"
   },
@@ -2164,7 +2173,7 @@
     "title": "Mini Melissa Hip Butterfly Bb (laranja/rosa)",
     "priceOriginal": 139.9,
     "pricePromo": 83.9,
-    "sizes": "20/21, 22, 23/24",
+    "sizes": "20/21, 22",
     "reference": "38043",
     "imageFile": "38043-laranja-rosa"
   },
@@ -2515,7 +2524,7 @@
     "title": "Mini Melissa Mar Sandal M Lover Inf (rosa)",
     "priceOriginal": 169.9,
     "pricePromo": 101.9,
-    "sizes": "28, 29, 31",
+    "sizes": "29, 31",
     "reference": "38037",
     "imageFile": "38037-rosa"
   },
