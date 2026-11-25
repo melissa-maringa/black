@@ -217,15 +217,6 @@
   },
   {
     "category": "adulto",
-    "title": "Melissa Beachwear Ad (marrom/preto)",
-    "priceOriginal": 199.9,
-    "pricePromo": 79.9,
-    "sizes": "36",
-    "reference": "37864",
-    "imageFile": "37864-marrom-preto"
-  },
-  {
-    "category": "adulto",
     "title": "Melissa Cozy Thong Ad (preto/vidro)",
     "priceOriginal": 199.9,
     "pricePromo": 79.9,
@@ -400,7 +391,7 @@
     "title": "Melissa Harmonic M Lover Ad (azul/prata)",
     "priceOriginal": 119.9,
     "pricePromo": 59.9,
-    "sizes": "36, 37",
+    "sizes": "36",
     "reference": "35797",
     "imageFile": "35797-azul-prata"
   },
@@ -904,16 +895,7 @@
     "title": "Mini Melissa Hip Daydream Bb (rosa Glitter)",
     "priceOriginal": 139.9,
     "pricePromo": 69.9,
-    "sizes": "17/18, 19, 20/21, 22",
-    "reference": "35903",
-    "imageFile": "35903-rosa-glitter"
-  },
-  {
-    "category": "bebe",
-    "title": "Mini Melissa Hip Daydream Bb (rosa Glitter)",
-    "priceOriginal": 139.9,
-    "pricePromo": 69.9,
-    "sizes": "17/18",
+    "sizes": "17/18, 19, 22",
     "reference": "35903",
     "imageFile": "35903-rosa-glitter"
   },
@@ -940,7 +922,7 @@
     "title": "Mini Melissa Smash Bb (rosa)",
     "priceOriginal": 139.9,
     "pricePromo": 69.9,
-    "sizes": "17/18, 20/21, 22",
+    "sizes": "20/21, 22",
     "reference": "38058",
     "imageFile": "38058-rosa"
   },
@@ -1093,7 +1075,7 @@
     "title": "Melissa City Platform Ad (preto)",
     "priceOriginal": 299.9,
     "pricePromo": 179.9,
-    "sizes": "35, 36",
+    "sizes": "36",
     "reference": "38106",
     "imageFile": "38106-preto"
   },
@@ -1291,7 +1273,7 @@
     "title": "Melissa Pop Platform Ad (marrom/marrom Tr)",
     "priceOriginal": 299.9,
     "pricePromo": 179.9,
-    "sizes": "36, 38",
+    "sizes": "38",
     "reference": "38134",
     "imageFile": "38134-marrom-marrom-tr"
   },
@@ -1300,7 +1282,7 @@
     "title": "Melissa Pop Platform Ad (preto)",
     "priceOriginal": 299.9,
     "pricePromo": 179.9,
-    "sizes": "35",
+    "sizes": "35, 36",
     "reference": "38134",
     "imageFile": "38134-preto"
   },
@@ -1516,7 +1498,7 @@
     "title": "Melissa Up Platform Ad (marrom)",
     "priceOriginal": 319.9,
     "pricePromo": 191.9,
-    "sizes": "33/34, 36, 37, 39/40",
+    "sizes": "33/34, 37, 39/40",
     "reference": "37065",
     "imageFile": "37065-marrom"
   },
@@ -1672,15 +1654,6 @@
     "sizes": "33/34",
     "reference": "32243",
     "imageFile": "32243-azul-perolado"
-  },
-  {
-    "category": "bebe",
-    "title": "Mini Melissa Vixen Inf (rosa Transparente)",
-    "priceOriginal": 269.9,
-    "pricePromo": 134.9,
-    "sizes": "31",
-    "reference": "35783",
-    "imageFile": "35783-rosa-transparente"
   },
   {
     "category": "adulto",
@@ -2155,7 +2128,7 @@
     "title": "Mini Melissa Aranha 79 Ii Inf (vidro/branco)",
     "priceOriginal": 169.9,
     "pricePromo": 101.9,
-    "sizes": "29, 30, 31, 33",
+    "sizes": "29, 31, 33",
     "reference": "38039",
     "imageFile": "38039-vidro-branco"
   },
@@ -2173,7 +2146,7 @@
     "title": "Mini Melissa Aranha 79 Ii Inf (rosa)",
     "priceOriginal": 169.9,
     "pricePromo": 101.9,
-    "sizes": "29, 31",
+    "sizes": "29",
     "reference": "38039",
     "imageFile": "38039-rosa"
   },
@@ -2191,7 +2164,7 @@
     "title": "Mini Melissa City Sandal Bb (preto)",
     "priceOriginal": 149.9,
     "pricePromo": 89.9,
-    "sizes": "25, 26/27",
+    "sizes": "26/27",
     "reference": "38108",
     "imageFile": "38108-preto"
   },
@@ -2200,7 +2173,7 @@
     "title": "Mini Melissa City Sandal Bb (bege/marrom)",
     "priceOriginal": 149.9,
     "pricePromo": 89.9,
-    "sizes": "17/18, 26/27",
+    "sizes": "17/18",
     "reference": "38108",
     "imageFile": "38108-bege-marrom"
   },
@@ -2236,7 +2209,7 @@
     "title": "Mini Melissa Cozy Sandal Bb (rosa/glitter)",
     "priceOriginal": 169.9,
     "pricePromo": 84.9,
-    "sizes": "17/18, 19, 20/21, 25, 28",
+    "sizes": "17/18, 19, 20/21, 23/24, 25, 28",
     "reference": "35686",
     "imageFile": "35686-rosa-glitter"
   },
@@ -2314,19 +2287,10 @@
   },
   {
     "category": "bebe",
-    "title": "Mini Melissa Flox Inf (amarelo Glitter)",
-    "priceOriginal": 169.9,
-    "pricePromo": 84.9,
-    "sizes": "31",
-    "reference": "31735",
-    "imageFile": "31735-amarelo-glitter"
-  },
-  {
-    "category": "bebe",
     "title": "Mini Melissa Flox Inf (rosa Glitter)",
     "priceOriginal": 169.9,
     "pricePromo": 84.9,
-    "sizes": "28, 29",
+    "sizes": "29",
     "reference": "31735",
     "imageFile": "31735-rosa-glitter"
   },
@@ -2353,7 +2317,7 @@
     "title": "Mini Melissa Hip + Hello Kitty Bb (rosa/branco)",
     "priceOriginal": 149.9,
     "pricePromo": 74.9,
-    "sizes": "17/18, 22, 26/27",
+    "sizes": "22, 26/27",
     "reference": "37872",
     "imageFile": "37872-rosa-branco"
   },
@@ -2560,7 +2524,7 @@
     "title": "Mini Melissa Jump Bb (rosa/rosa Glitter)",
     "priceOriginal": 149.9,
     "pricePromo": 74.9,
-    "sizes": "17/18, 19, 20/21, 22",
+    "sizes": "20/21, 22",
     "reference": "32834",
     "imageFile": "32834-rosa-rosa-glitter"
   },
@@ -2668,7 +2632,7 @@
     "title": "Mini Melissa Mar Sandal M Lover Bb (laranja)",
     "priceOriginal": 149.9,
     "pricePromo": 74.9,
-    "sizes": "17/18, 20/21, 22",
+    "sizes": "17/18, 20/21",
     "reference": "36112",
     "imageFile": "36112-laranja"
   },
@@ -2827,15 +2791,6 @@
   },
   {
     "category": "bebe",
-    "title": "Mini Melissa Possession Inf (rosa Claro)",
-    "priceOriginal": 169.9,
-    "pricePromo": 84.9,
-    "sizes": "29",
-    "reference": "32409",
-    "imageFile": "32409-rosa-claro"
-  },
-  {
-    "category": "bebe",
     "title": "Mini Melissa Possession Uni Bb (rosa/laranja/branco)",
     "priceOriginal": 169.9,
     "pricePromo": 67.9,
@@ -2929,7 +2884,7 @@
     "title": "Mini Melissa Solar + Moana Inf (rosa/bege)",
     "priceOriginal": 199.9,
     "pricePromo": 119.9,
-    "sizes": "29, 30, 31, 32, 33",
+    "sizes": "29, 30, 32, 33",
     "reference": "38110",
     "imageFile": "38110-rosa-bege"
   },
@@ -3280,7 +3235,7 @@
     "title": "Mini Melissa Ultragirl Colors Bb (rosa)",
     "priceOriginal": 139.9,
     "pricePromo": 55.9,
-    "sizes": "17/18, 20/21, 23/24",
+    "sizes": "17/18, 20/21",
     "reference": "37107",
     "imageFile": "37107-rosa"
   },
