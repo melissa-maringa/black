@@ -4,11 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Black Friday Melissa - Maringá Park</title>
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- FontAwesome CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    
     <style>
         :root {
             --bf-black: #000000;
@@ -20,56 +15,283 @@
             --whatsapp-green: #25D366;
         }
 
-        body { background-color: var(--melissa-bg); color: var(--text-dark); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; padding-bottom: 4rem; -webkit-font-smoothing: antialiased; }
-        
+        *, *::before, *::after { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            background-color: var(--melissa-bg);
+            color: var(--text-dark);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            padding-bottom: 4rem;
+            -webkit-font-smoothing: antialiased;
+        }
+
         /* Tema Black Friday - Header */
-        .header-box { background-color: var(--bf-black); padding: 2rem 1rem 1.5rem 1rem; text-align: center; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); position: relative; z-index: 10; border-bottom: 3px solid var(--bf-yellow); }
-        .promo-pill-badge { display: inline-block; background-color: var(--bf-red); color: #ffffff; font-weight: 900; font-size: 0.8rem; padding: 0.4rem 1.2rem; border-radius: 50px; text-transform: uppercase; margin-bottom: 1rem; animation: pulse 1.5s infinite; letter-spacing: 1px; box-shadow: 0 0 15px rgba(255, 59, 48, 0.5); }
-        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.08); } 100% { transform: scale(1); } }
-        
-        .brand-melissa-text { font-size: 3.2rem; font-weight: 900; color: #ffffff; letter-spacing: -1.5px; line-height: 1; margin: 0; text-transform: lowercase; }
-        .header-subtitle { color: var(--bf-yellow); font-weight: 800; font-size: 0.9rem; letter-spacing: 1px; margin-top: 0.5rem; margin-bottom: 0; text-transform: uppercase; }
-        
+        .header-box {
+            background-color: var(--bf-black);
+            padding: 2rem 1rem 1.5rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 10;
+            border-bottom: 3px solid var(--bf-yellow);
+        }
+
+        .promo-pill-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background-color: var(--bf-red);
+            color: #ffffff;
+            font-weight: 900;
+            font-size: 0.8rem;
+            padding: 0.4rem 1.2rem;
+            border-radius: 50px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            animation: pulse 1.5s infinite;
+            letter-spacing: 1px;
+            box-shadow: 0 0 15px rgba(255, 59, 48, 0.5);
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.06); }
+            100% { transform: scale(1); }
+        }
+
+        .brand-melissa-text {
+            font-size: 3.2rem;
+            font-weight: 900;
+            color: #ffffff;
+            letter-spacing: -1.5px;
+            line-height: 1;
+            margin: 0;
+            text-transform: lowercase;
+        }
+
+        .header-subtitle {
+            color: var(--bf-yellow);
+            font-weight: 800;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            margin: 0.5rem 0 0 0;
+            text-transform: uppercase;
+        }
+
         /* Tema Black Friday - Categorias */
-        .category-wrapper { position: sticky; top: 0; z-index: 100; background-color: var(--bf-black); padding: 0.8rem 0; box-shadow: 0 4px 10px rgba(0,0,0,0.15); }
-        .category-container { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; padding: 0 1rem; }
+        .category-wrapper {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background-color: var(--bf-black);
+            padding: 0.8rem 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .category-container {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            scrollbar-width: none;
+            padding: 0 1rem;
+            max-width: 960px;
+            margin: 0 auto;
+        }
         .category-container::-webkit-scrollbar { display: none; }
-        .btn-cat { background-color: #222222; color: #aaaaaa; border: 1px solid #333; border-radius: 8px; padding: 0.5rem 1rem; font-size: 0.85rem; font-weight: 700; white-space: nowrap; transition: all 0.2s ease; }
-        .btn-cat.active { background-color: var(--bf-yellow); color: var(--bf-black); border-color: var(--bf-yellow); font-weight: 900; }
-        
+
+        .btn-cat {
+            background-color: #222222;
+            color: #aaaaaa;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 0.5rem 1rem;
+            font-size: 0.85rem;
+            font-weight: 700;
+            white-space: nowrap;
+            cursor: pointer;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+        .btn-cat.active {
+            background-color: var(--bf-yellow);
+            color: var(--bf-black);
+            border-color: var(--bf-yellow);
+            font-weight: 900;
+        }
+
         /* Produtos */
-        .product-grid { padding: 0 0.5rem; margin-top: 1.5rem !important; }
-        .product-card { background-color: var(--melissa-card); border-radius: 12px; overflow: hidden; margin-bottom: 1.25rem; box-shadow: 0 6px 16px rgba(0,0,0,0.08); position: relative; border: 1px solid #eaeaea; }
-        
-        /* Etiqueta de Desconto Black Friday */
-        .discount-badge { position: absolute; top: 12px; right: 12px; background-color: var(--bf-black); color: var(--bf-yellow); font-weight: 900; font-size: 0.9rem; padding: 0.4rem 0.8rem; border-radius: 8px; z-index: 2; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); letter-spacing: -0.5px; border: 1px solid var(--bf-yellow); }
-        
-        .img-container { width: 100%; padding-top: 100%; position: relative; background-color: #f8f8f8; }
-        .product-img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
+        .product-grid {
+            width: 100%;
+            max-width: 960px;
+            margin: 1.5rem auto 0 auto;
+            padding: 0 0.75rem;
+        }
+
+        .product-card {
+            background-color: var(--melissa-card);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 1.25rem;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+            position: relative;
+            border: 1px solid #eaeaea;
+            content-visibility: auto;
+            contain-intrinsic-size: 520px;
+        }
+
+        .discount-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background-color: var(--bf-black);
+            color: var(--bf-yellow);
+            font-weight: 900;
+            font-size: 0.9rem;
+            padding: 0.4rem 0.8rem;
+            border-radius: 8px;
+            z-index: 2;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            letter-spacing: -0.5px;
+            border: 1px solid var(--bf-yellow);
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .img-container {
+            width: 100%;
+            padding-top: 100%;
+            position: relative;
+            background-color: #f8f8f8;
+        }
+
+        .product-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
         .product-info { padding: 1rem; }
-        .product-title { font-size: 1.1rem; font-weight: 800; color: var(--text-dark); margin-bottom: 0.3rem; line-height: 1.2; }
-        
-        .price-container { display: flex; align-items: baseline; gap: 8px; margin-bottom: 0.5rem; }
-        .price-old { color: #999; text-decoration: line-through; font-size: 0.9rem; font-weight: 600; margin: 0; }
-        .price-new { color: var(--bf-black); font-size: 1.8rem; font-weight: 900; margin: 0; letter-spacing: -1px; }
-        
-        .sizes-box { background-color: #fff9e6; border: 1px dashed var(--bf-yellow); border-radius: 8px; padding: 0.6rem; margin-bottom: 1rem; text-align: center; }
-        .sizes-label { font-size: 0.7rem; color: #666; font-weight: 800; text-transform: uppercase; display: block; margin-bottom: 0.2rem; }
-        .sizes-numbers { font-size: 1rem; font-weight: 900; color: var(--bf-black); }
-        
-        .btn-whatsapp { background-color: var(--whatsapp-green); color: #ffffff; font-size: 1rem; font-weight: 900; border-radius: 8px; padding: 0.9rem; text-align: center; text-decoration: none; display: block; width: 100%; border: none; box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3); text-transform: uppercase; letter-spacing: 0.5px; }
-        .btn-whatsapp:active { transform: scale(0.98); background-color: #1ebc57; }
-        
-        .legal-box { background-color: var(--bf-black); padding: 1.5rem 1rem; color: #888; font-size: 0.75rem; text-align: center; line-height: 1.5; margin-top: 2rem; border-top: 2px solid #222; }
+
+        .product-title {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin: 0 0 0.35rem 0;
+            line-height: 1.2;
+        }
+
+        .price-container {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            margin-bottom: 0.5rem;
+        }
+
+        .price-old {
+            color: #999;
+            text-decoration: line-through;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .price-new {
+            color: var(--bf-black);
+            font-size: 1.8rem;
+            font-weight: 900;
+            margin: 0;
+            letter-spacing: -1px;
+        }
+
+        .sizes-box {
+            background-color: #fff9e6;
+            border: 1px dashed var(--bf-yellow);
+            border-radius: 8px;
+            padding: 0.6rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .sizes-label {
+            font-size: 0.7rem;
+            color: #666;
+            font-weight: 800;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+
+        .sizes-numbers {
+            font-size: 1rem;
+            font-weight: 900;
+            color: var(--bf-black);
+        }
+
+        .btn-whatsapp {
+            background-color: var(--whatsapp-green);
+            color: #ffffff;
+            font-size: 1rem;
+            font-weight: 900;
+            border-radius: 8px;
+            padding: 0.9rem;
+            text-align: center;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            border: none;
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .btn-whatsapp:active {
+            transform: scale(0.98);
+            background-color: #1ebc57;
+        }
+
+        .status-msg {
+            text-align: center;
+            margin-top: 2rem;
+            width: 100%;
+            font-weight: 700;
+            grid-column: 1 / -1;
+        }
+
+        .legal-box {
+            background-color: var(--bf-black);
+            padding: 1.5rem 1rem;
+            color: #888;
+            font-size: 0.75rem;
+            text-align: center;
+            line-height: 1.5;
+            margin-top: 2rem;
+            border-top: 2px solid #222;
+        }
         .legal-box b { color: var(--bf-yellow); }
-        
-        @media (min-width: 576px) { .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; } }
+
+        @media (min-width: 576px) {
+            .product-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 15px;
+            }
+            .product-card { margin-bottom: 0; }
+        }
     </style>
 </head>
 <body>
 
     <header class="header-box">
-        <div class="promo-pill-badge"><i class="fa-solid fa-bolt"></i> BLACK FRIDAY WHATSAPP</div>
+        <div class="promo-pill-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg>
+            BLACK FRIDAY WHATSAPP
+        </div>
         <h1 class="brand-melissa-text">melissa</h1>
         <h2 class="header-subtitle">Maringá Park • Ofertas Exclusivas</h2>
     </header>
@@ -83,9 +305,12 @@
         </div>
     </div>
 
-    <div class="container product-grid" id="productGrid">
-        <p class="text-center mt-4 w-100 fw-bold">Carregando as ofertas de Black Friday...</p>
+    <div class="product-grid" id="productGrid">
+        <p class="status-msg">Carregando as ofertas de Black Friday...</p>
     </div>
+
+    <!-- Sentinela invisível que dispara o carregamento dos próximos 20 produtos -->
+    <div id="loadSentinel" style="height: 20px; width: 100%;"></div>
 
     <footer class="legal-box">
         <b>⚠️ ESTOQUE LIMITADÍSSIMO!</b><br>
@@ -93,29 +318,40 @@
     </footer>
 
     <script>
-        const whatsappNumber = "554499814406"; 
-        let products = []; 
+        const whatsappNumber = "554499814406";
+        const BATCH_SIZE = 20;
+
+        let products = [];
+        let currentFiltered = [];
+        let renderedCount = 0;
+
+        const ICON_TAG = '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.41 11.58l-9-9C12.05 2.22 11.55 2 11 2H4c-1.1 0-2 .9-2 2v7c0 .55.22 1.05.59 1.42l9 9c.36.36.86.58 1.41.58s1.05-.22 1.41-.59l7-7c.37-.36.59-.86.59-1.41s-.23-1.06-.59-1.42zM5.5 7C4.67 7 4 6.33 4 5.5S4.67 4 5.5 4 7 4.67 7 5.5 6.33 7 5.5 7z"/></svg>';
+        const ICON_WHATSAPP = '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.04c-.24.68-1.41 1.3-1.96 1.38-.51.07-1.16.1-1.87-.12-.44-.14-1-.33-1.71-.64-3-1.3-4.96-4.32-5.11-4.52-.15-.2-1.22-1.62-1.22-3.09s.77-2.19 1.05-2.49c.28-.3.6-.38.8-.38h.58c.19 0 .44-.07.69.53.26.62.88 2.14.95 2.3.08.15.13.33.03.53-.1.2-.15.33-.3.5-.15.18-.32.4-.45.53-.15.15-.3.31-.13.61.17.3.77 1.27 1.65 2.05 1.14 1.01 2.09 1.33 2.39 1.48.3.15.48.13.65-.08.18-.2.75-.88.95-1.18.2-.3.4-.25.68-.15.28.1 1.75.83 2.05.98.3.15.5.22.58.35.07.12.07.72-.17 1.4z"/></svg>';
+
+        const PLACEHOLDER_SVG = "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(
+            '<svg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500"><rect width="500" height="500" fill="#eeeeee"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#999999" font-family="Arial, sans-serif" font-size="28" font-weight="bold">Melissa</text></svg>'
+        );
 
         function formatMoney(value) { return value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }); }
         function calculateDiscount(oldP, newP) { return Math.round(((oldP - newP) / oldP) * 100); }
+        function escapeHtml(str) {
+            return String(str || '').replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+        }
 
         function getWhatsAppLink(product) {
             const tituloLimpo = product.title.trim();
 
-            // Separa os tamanhos pela vírgula para saber quantos existem disponíveis
             const listaTamanhos = (product.sizes || '')
                 .split(/[,|]/)
                 .map(s => s.trim())
                 .filter(s => s !== '');
 
-            // Se tiver exatamente 1 tamanho disponível, adiciona na mensagem do WhatsApp
             let linhaTamanho = '';
             if (listaTamanhos.length === 1 && !listaTamanhos[0].toLowerCase().includes('consulte')) {
                 const tam = listaTamanhos[0];
                 linhaTamanho = `\nTamanho: *${tam.toUpperCase() === 'UN' ? 'Único' : tam}*`;
             }
 
-            // Mensagem atualizada para o clima de Black Friday
             const text = `Oi Léo! Tudo bem? Vi as ofertas de *Black Friday* e quero verificar a disponibilidade deste modelo:\n\n*${tituloLimpo}*${linhaTamanho}\nPor: *${formatMoney(product.pricePromo)}*`;
             return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
         }
@@ -130,88 +366,79 @@
             return array;
         }
 
-        // --- SISTEMA DE TENTATIVA INTELIGENTE DE FOTO (.webp -> .jpg -> .png) ---
-        function handleImageError(imgElement, reference) {
-            const currentSrc = imgElement.src;
-            
-            if (currentSrc.includes('.avif') && !imgElement.dataset.triedWebp) {
-                imgElement.dataset.triedWebp = "true";
-                imgElement.src = currentSrc.replace('.avif', '.webp');
-            } else if (currentSrc.includes('.webp') && !imgElement.dataset.triedJpg) {
-                imgElement.dataset.triedJpg = "true";
-                imgElement.src = currentSrc.replace('.webp', '.jpg');
-            } else if (currentSrc.includes('.jpg') && !imgElement.dataset.triedPng) {
-                imgElement.dataset.triedPng = "true";
-                imgElement.src = currentSrc.replace('.jpg', '.png');
-            } else if (!imgElement.dataset.triedDefaultAvif) {
-                imgElement.dataset.triedDefaultAvif = "true";
-                imgElement.src = `img/${reference}.avif`; 
-            } else if (!imgElement.dataset.triedDefaultWebp) {
-                imgElement.dataset.triedDefaultWebp = "true";
-                imgElement.src = `img/${reference}.webp`; 
-            } else if (!imgElement.dataset.triedDefaultJpg) {
-                imgElement.dataset.triedDefaultJpg = "true";
-                imgElement.src = `img/${reference}.jpg`; 
-            } else if (!imgElement.dataset.triedDefaultPng) {
-                imgElement.dataset.triedDefaultPng = "true";
-                imgElement.src = `img/${reference}.png`; 
-            } else {
-                imgElement.src = 'https://via.placeholder.com/500x500?text=Sem+Foto'; 
-            }
-        }
+        function loadMoreProducts() {
+            if (renderedCount >= currentFiltered.length) return;
 
-        function renderProducts(items) {
             const grid = document.getElementById('productGrid');
-            grid.innerHTML = '';
+            const nextBatch = currentFiltered.slice(renderedCount, renderedCount + BATCH_SIZE);
+            let batchHtml = '';
 
-            if(items.length === 0) {
-                grid.innerHTML = '<div class="text-center mt-4 w-100 fw-bold"><p>Nenhum produto nesta categoria.</p></div>';
-                return;
-            }
-
-            const randomizedItems = shuffleArray([...items]);
-
-            randomizedItems.forEach(product => {
+            nextBatch.forEach(product => {
                 const discount = calculateDiscount(product.priceOriginal, product.pricePromo);
                 const imgName = product.imageFile || product.reference;
-                
-                const cardHtml = `
+
+                batchHtml += `
                     <div class="product-card">
-                        <div class="discount-badge"><i class="fa-solid fa-tag"></i> ${discount}% OFF</div>
+                        <div class="discount-badge">${ICON_TAG} ${discount}% OFF</div>
                         <div class="img-container">
-                            <img src="img/${imgName}.avif" alt="${product.title}" class="product-img" loading="lazy" onerror="handleImageError(this, '${product.reference}')">
+                            <img src="img/${imgName}.webp" alt="${escapeHtml(product.title)}" class="product-img" loading="lazy" decoding="async" onerror="this.onerror=null;this.src=PLACEHOLDER_SVG;">
                         </div>
                         <div class="product-info">
-                            <h3 class="product-title">${product.title}</h3>
+                            <h3 class="product-title">${escapeHtml(product.title)}</h3>
                             <div class="price-container">
                                 <p class="price-new">${formatMoney(product.pricePromo)}</p>
                                 <p class="price-old">${formatMoney(product.priceOriginal)}</p>
                             </div>
                             <div class="sizes-box">
                                 <span class="sizes-label">Números na Promoção:</span>
-                                <span class="sizes-numbers">${product.sizes}</span>
+                                <span class="sizes-numbers">${escapeHtml(product.sizes)}</span>
                             </div>
-                            <a href="${getWhatsAppLink(product)}" target="_blank" class="btn-whatsapp">
-                                <i class="fa-brands fa-whatsapp"></i> Quero no WhatsApp
+                            <a href="${getWhatsAppLink(product)}" target="_blank" rel="noopener" class="btn-whatsapp">
+                                ${ICON_WHATSAPP} Quero no WhatsApp
                             </a>
                         </div>
                     </div>
                 `;
-                grid.innerHTML += cardHtml;
             });
+
+            grid.insertAdjacentHTML('beforeend', batchHtml);
+            renderedCount += nextBatch.length;
+        }
+
+        function renderProducts(items) {
+            const grid = document.getElementById('productGrid');
+            grid.innerHTML = '';
+            renderedCount = 0;
+
+            if (items.length === 0) {
+                currentFiltered = [];
+                grid.innerHTML = '<p class="status-msg">Nenhum produto nesta categoria.</p>';
+                return;
+            }
+
+            currentFiltered = shuffleArray([...items]);
+            loadMoreProducts();
         }
 
         function filterCategory(category, button) {
             document.querySelectorAll('.btn-cat').forEach(btn => btn.classList.remove('active'));
             button.classList.add('active');
 
-            if (category === 'todos') { renderProducts(products); } 
+            if (category === 'todos') { renderProducts(products); }
             else { renderProducts(products.filter(p => p.category === category)); }
-            
+
             window.scrollTo({ top: document.querySelector('.category-wrapper').offsetTop, behavior: 'smooth' });
         }
 
-        document.addEventListener('DOMContentLoaded', () => { 
+        document.addEventListener('DOMContentLoaded', () => {
+            const sentinel = document.getElementById('loadSentinel');
+            const observer = new IntersectionObserver((entries) => {
+                if (entries[0].isIntersecting) {
+                    loadMoreProducts();
+                }
+            }, { rootMargin: '400px' });
+            observer.observe(sentinel);
+
             fetch('produtos.json')
                 .then(res => res.json())
                 .then(data => {
@@ -220,7 +447,7 @@
                 })
                 .catch(e => {
                     console.log('Erro ao carregar o JSON.', e);
-                    document.getElementById('productGrid').innerHTML = '<div class="text-center mt-4 w-100 fw-bold"><p>Erro ao carregar as ofertas. Tente recarregar a página.</p></div>';
+                    document.getElementById('productGrid').innerHTML = '<p class="status-msg">Erro ao carregar as ofertas. Tente recarregar a página.</p>';
                 });
         });
     </script>
