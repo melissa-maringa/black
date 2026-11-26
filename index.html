@@ -79,7 +79,6 @@
             text-transform: uppercase;
         }
 
-        /* Item 6: Faixa de Quebra de Objeções */
         .trust-strip {
             margin-top: 0.9rem;
             padding-top: 0.75rem;
@@ -91,80 +90,100 @@
         }
         .trust-strip span { color: var(--bf-yellow); font-weight: 800; }
 
-        /* Barra Fixa de Categorias + Filtro de Numeração */
+        /* Barra Fixa Exclusiva de Numerações */
         .category-wrapper {
             position: sticky;
             top: 0;
             z-index: 100;
             background-color: var(--bf-black);
-            padding: 0.7rem 0 0.65rem 0;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            padding: 0.65rem 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
             border-bottom: 1px solid #222;
         }
 
-        .category-container, .size-filter-container {
+        .size-nav-shell {
             display: flex;
-            gap: 8px;
-            overflow-x: auto;
-            scrollbar-width: none;
-            padding: 0 1rem;
+            align-items: center;
+            gap: 5px;
             max-width: 960px;
             margin: 0 auto;
-            align-items: center;
+            padding: 0 0.5rem;
         }
-        .category-container::-webkit-scrollbar,
-        .size-filter-container::-webkit-scrollbar { display: none; }
+
+        .scroll-arrow {
+            background-color: #222222;
+            color: var(--bf-yellow);
+            border: 1px solid #3a3a3a;
+            border-radius: 8px;
+            width: 30px;
+            height: 32px;
+            font-size: 1.25rem;
+            font-weight: 900;
+            line-height: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            flex-shrink: 0;
+            padding: 0 0 2px 0;
+        }
+        .scroll-arrow:active {
+            background-color: var(--bf-yellow);
+            color: var(--bf-black);
+        }
 
         .size-filter-container {
-            margin-top: 0.55rem;
-            padding-top: 0.55rem;
-            border-top: 1px solid #222;
+            display: flex;
+            gap: 7px;
+            overflow-x: auto;
+            scrollbar-width: none;
+            scroll-behavior: smooth;
+            align-items: center;
+            flex: 1;
+            padding: 2px 0;
         }
+        .size-filter-container::-webkit-scrollbar { display: none; }
 
         .size-filter-label {
             color: var(--bf-yellow);
-            font-size: 0.72rem;
-            font-weight: 800;
+            font-size: 0.74rem;
+            font-weight: 900;
             text-transform: uppercase;
             white-space: nowrap;
             margin-right: 2px;
         }
 
-        .btn-cat {
-            background-color: #222222;
-            color: #aaaaaa;
-            border: 1px solid #333;
-            border-radius: 8px;
-            padding: 0.48rem 0.95rem;
-            font-size: 0.84rem;
+        .btn-size-filter {
+            background-color: #1f1f1f;
+            color: #dddddd;
+            border: 1px solid #3a3a3a;
+            border-radius: 50px;
+            padding: 0.38rem 0.85rem;
+            font-size: 0.82rem;
             font-weight: 700;
             white-space: nowrap;
             cursor: pointer;
-            transition: background-color 0.2s ease, color 0.2s ease;
+            transition: background-color 0.15s ease, color 0.15s ease;
         }
-        .btn-cat.active {
+        .btn-size-filter:hover {
+            border-color: var(--bf-yellow);
+        }
+        .btn-size-filter.active {
             background-color: var(--bf-yellow);
             color: var(--bf-black);
             border-color: var(--bf-yellow);
             font-weight: 900;
         }
 
-        .btn-size-filter {
-            background-color: #161616;
-            color: #cccccc;
-            border: 1px solid #3a3a3a;
-            border-radius: 50px;
-            padding: 0.28rem 0.72rem;
-            font-size: 0.78rem;
-            font-weight: 700;
-            white-space: nowrap;
-            cursor: pointer;
-        }
-        .btn-size-filter.active {
-            background-color: #ffffff;
-            color: var(--bf-black);
-            border-color: #ffffff;
-            font-weight: 900;
+        /* No computador, mostra todos os números organizados em linhas sem precisar deslizar */
+        @media (min-width: 768px) {
+            .scroll-arrow { display: none; }
+            .size-filter-container {
+                flex-wrap: wrap;
+                justify-content: center;
+                overflow-x: visible;
+                padding: 0.15rem 1rem;
+            }
         }
 
         /* Grid de Produtos */
@@ -187,7 +206,6 @@
             contain-intrinsic-size: 540px;
         }
 
-        /* Selo % OFF */
         .discount-badge {
             position: absolute;
             top: 12px;
@@ -207,7 +225,6 @@
             gap: 5px;
         }
 
-        /* Item 5: Selo de Último Número */
         .scarcity-badge {
             position: absolute;
             top: 12px;
@@ -274,7 +291,6 @@
             letter-spacing: -1px;
         }
 
-        /* Item 5: Economia em R$ */
         .savings-text {
             font-size: 0.78rem;
             font-weight: 800;
@@ -282,7 +298,6 @@
             margin-bottom: 0.65rem;
         }
 
-        /* Item 3: Tamanhos Clicáveis dentro do Card */
         .sizes-box {
             background-color: #fff9e6;
             border: 1px dashed var(--bf-yellow);
@@ -391,22 +406,17 @@
         <h1 class="brand-melissa-text">melissa</h1>
         <h2 class="header-subtitle">Maringá Park • Ofertas Exclusivas</h2>
         
-        <!-- Item 6: Faixa de Quebra de Objeções (edite o texto aqui se precisar) -->
         <div class="trust-strip">
             <span>📍</span> Retire no Maringá Park &nbsp;•&nbsp; <span>🛵</span> Entrega na região &nbsp;•&nbsp; <span>💳</span> Pix e Cartão
         </div>
     </header>
 
     <div class="category-wrapper">
-        <div class="category-container">
-            <button class="btn-cat active" onclick="filterCategory('todos', this)">TUDO</button>
-            <button class="btn-cat" onclick="filterCategory('bebe', this)">MINI (17 ao 28)</button>
-            <button class="btn-cat" onclick="filterCategory('infantil', this)">MEL (26 ao 33)</button>
-            <button class="btn-cat" onclick="filterCategory('adulto', this)">ADULTO (33 ao 40)</button>
+        <div class="size-nav-shell">
+            <button type="button" class="scroll-arrow" onclick="scrollSizes(-180)" aria-label="Rolar para esquerda">&#8249;</button>
+            <div class="size-filter-container" id="sizeFilterBar"></div>
+            <button type="button" class="scroll-arrow" onclick="scrollSizes(180)" aria-label="Rolar para direita">&#8250;</button>
         </div>
-
-        <!-- Item 1: Filtro Rápido por Numeração Exata -->
-        <div class="size-filter-container" id="sizeFilterBar"></div>
     </div>
 
     <div class="product-grid" id="productGrid">
@@ -423,19 +433,16 @@
     <script>
         const whatsappNumber = "554499814406";
         
-        // ITEM 8 (RASTREAMENTO ZERO BUROCRACIA):
-        // Crie uma propriedade no analytics.google.com, pegue o código G-XXXXXXXXXX e cole abaixo dentro das aspas:
-        const GA_ID = "G-E7P4YX9T01"; 
+        // Cole seu ID do Google Analytics aqui dentro das aspas (Ex: "G-58F0DVTMVF")
+        const GA_ID = ""; 
 
         const BATCH_SIZE = 20;
 
         let products = [];
-        let currentCategory = 'todos';
         let selectedFilterSize = 'todos';
         let currentFiltered = [];
         let renderedCount = 0;
 
-        // Ativa o Google Analytics automaticamente apenas se você preencher o GA_ID acima
         if (GA_ID && GA_ID.startsWith("G-")) {
             const s = document.createElement("script");
             s.async = true;
@@ -471,18 +478,6 @@
                 .split(/[,|]/)
                 .map(s => s.trim())
                 .filter(s => s !== '');
-        }
-
-        // Item 2: Corrige a categoria MEL (Infantil 26 ao 33) automaticamente
-        function getNormalizedCategory(product) {
-            if (product.category === 'infantil') return 'infantil';
-            if (product.category === 'bebe') {
-                const titleBase = (product.title || '').split('(')[0];
-                if (/\b(inf|in|mel)\b/i.test(titleBase) || /\b(29|30|31|32|33)\b/.test(product.sizes || '')) {
-                    return 'infantil';
-                }
-            }
-            return product.category;
         }
 
         function getWhatsAppLink(product, chosenSize = '') {
@@ -524,12 +519,16 @@
             });
         }
 
-        // Atualiza a barra de numerações disponíveis para a categoria ativa
-        function renderSizeFilterBar(categoryItems) {
+        function scrollSizes(amount) {
+            document.getElementById('sizeFilterBar').scrollBy({ left: amount, behavior: 'smooth' });
+        }
+
+        // Monta a barra de numerações uma única vez após carregar o JSON
+        function buildSizeFilterBar(allItems) {
             const bar = document.getElementById('sizeFilterBar');
             const sizeSet = new Set();
 
-            categoryItems.forEach(p => {
+            allItems.forEach(p => {
                 parseSizes(p.sizes).forEach(s => {
                     if (!s.toLowerCase().includes('consulte')) {
                         sizeSet.add(s);
@@ -538,24 +537,17 @@
             });
 
             const sortedSizes = sortSizes(Array.from(sizeSet));
-            if (sortedSizes.length === 0) {
-                bar.innerHTML = '';
-                return;
-            }
-
             let html = '<span class="size-filter-label">Seu nº:</span>';
-            html += `<button class="btn-size-filter ${selectedFilterSize === 'todos' ? 'active' : ''}" onclick="filterBySize('todos')">Todos</button>`;
+            html += `<button type="button" class="btn-size-filter active" data-size="todos" onclick="filterBySize('todos')">Todos</button>`;
 
             sortedSizes.forEach(sz => {
                 const label = sz.toUpperCase() === 'UN' ? 'Único' : sz;
-                const isActive = selectedFilterSize === sz ? 'active' : '';
-                html += `<button class="btn-size-filter ${isActive}" onclick="filterBySize('${escapeHtml(sz)}')">${escapeHtml(label)}</button>`;
+                html += `<button type="button" class="btn-size-filter" data-size="${escapeHtml(sz)}" onclick="filterBySize('${escapeHtml(sz)}')">${escapeHtml(label)}</button>`;
             });
 
             bar.innerHTML = html;
         }
 
-        // Item 3: Seleciona o tamanho dentro do card e já atualiza o link do Zap
         function selectCardSize(btn, size) {
             const card = btn.closest('.product-card');
             const allPills = card.querySelectorAll('.size-pill');
@@ -589,7 +581,6 @@
                 produto: product.title,
                 referencia: product.reference,
                 tamanho: chosenSize,
-                categoria: product._cat,
                 preco: product.pricePromo
             });
         }
@@ -610,7 +601,6 @@
                 const isSingleSize = listaTamanhos.length === 1 && !listaTamanhos[0].toLowerCase().includes('consulte');
                 const isLastShoeSize = isSingleSize && listaTamanhos[0].toUpperCase() !== 'UN';
 
-                // Pré-seleciona se tiver só 1 tamanho ou se o usuário filtrou pelo número no topo
                 let preSelectedSize = '';
                 if (selectedFilterSize !== 'todos' && listaTamanhos.includes(selectedFilterSize)) {
                     preSelectedSize = selectedFilterSize;
@@ -659,15 +649,9 @@
         }
 
         function applyFilters() {
-            const categoryItems = (currentCategory === 'todos')
-                ? products
-                : products.filter(p => p._cat === currentCategory);
-
-            renderSizeFilterBar(categoryItems);
-
             const finalItems = (selectedFilterSize === 'todos')
-                ? categoryItems
-                : categoryItems.filter(p => parseSizes(p.sizes).includes(selectedFilterSize));
+                ? products
+                : products.filter(p => parseSizes(p.sizes).includes(selectedFilterSize));
 
             const grid = document.getElementById('productGrid');
             grid.innerHTML = '';
@@ -675,7 +659,7 @@
 
             if (finalItems.length === 0) {
                 currentFiltered = [];
-                grid.innerHTML = '<p class="status-msg">Nenhum produto disponível com esse filtro.</p>';
+                grid.innerHTML = '<p class="status-msg">Nenhum produto disponível neste número.</p>';
                 return;
             }
 
@@ -683,27 +667,30 @@
             loadMoreProducts();
         }
 
-        function filterCategory(category, button) {
-            document.querySelectorAll('.btn-cat').forEach(btn => btn.classList.remove('active'));
-            button.classList.add('active');
-
-            currentCategory = category;
-            selectedFilterSize = 'todos';
-            trackEvent('filtro_categoria', { categoria: category });
-            applyFilters();
-
-            window.scrollTo({ top: document.querySelector('.category-wrapper').offsetTop, behavior: 'smooth' });
-        }
-
         function filterBySize(size) {
             selectedFilterSize = (selectedFilterSize === size && size !== 'todos') ? 'todos' : size;
-            trackEvent('filtro_tamanho', { tamanho: selectedFilterSize, categoria: currentCategory });
+
+            // Atualiza visualmente qual número está selecionado sem resetar o scroll da barra
+            document.querySelectorAll('#sizeFilterBar .btn-size-filter').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.size === selectedFilterSize);
+            });
+
+            trackEvent('filtro_tamanho', { tamanho: selectedFilterSize });
             applyFilters();
 
             window.scrollTo({ top: document.querySelector('.category-wrapper').offsetTop, behavior: 'smooth' });
         }
 
         document.addEventListener('DOMContentLoaded', () => {
+            // Permite deslizar a barra de números com a rodinha do mouse em telas pequenas no PC
+            const sizeBar = document.getElementById('sizeFilterBar');
+            sizeBar.addEventListener('wheel', (e) => {
+                if (sizeBar.scrollWidth > sizeBar.clientWidth && e.deltaY !== 0) {
+                    e.preventDefault();
+                    sizeBar.scrollLeft += e.deltaY;
+                }
+            }, { passive: false });
+
             const sentinel = document.getElementById('loadSentinel');
             const observer = new IntersectionObserver((entries) => {
                 if (entries[0].isIntersecting) {
@@ -715,11 +702,8 @@
             fetch('produtos.json')
                 .then(res => res.json())
                 .then(data => {
-                    // Normaliza categorias na hora do carregamento (corrige a aba MEL automaticamente)
-                    products = data.map(p => ({
-                        ...p,
-                        _cat: getNormalizedCategory(p)
-                    }));
+                    products = data;
+                    buildSizeFilterBar(products);
                     applyFilters();
                 })
                 .catch(e => {
