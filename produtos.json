@@ -922,7 +922,7 @@
     "title": "Melissa M Lover Thong Platform Ad (preto)",
     "priceOriginal": 249.9,
     "pricePromo": 124.9,
-    "sizes": "36, 37, 38, 39/40",
+    "sizes": "36, 37, 39/40",
     "reference": "37914",
     "imageFile": "37914-preto"
   },
@@ -940,7 +940,7 @@
     "title": "Melissa M Lover Thong Platform Ad (bege)",
     "priceOriginal": 249.9,
     "pricePromo": 124.9,
-    "sizes": "33/34, 37, 38",
+    "sizes": "33/34, 37",
     "reference": "37914",
     "imageFile": "37914-bege"
   },
@@ -964,19 +964,10 @@
   },
   {
     "category": "adulto",
-    "title": "Melissa Pop Platform Ad (bege)",
-    "priceOriginal": 299.9,
-    "pricePromo": 149.9,
-    "sizes": "35",
-    "reference": "38134",
-    "imageFile": "38134-bege"
-  },
-  {
-    "category": "adulto",
     "title": "Melissa Pop Platform Ad (marrom/marrom Tr)",
     "priceOriginal": 299.9,
     "pricePromo": 149.9,
-    "sizes": "38",
+    "sizes": "37, 38",
     "reference": "38134",
     "imageFile": "38134-marrom-marrom-tr"
   },
@@ -1117,15 +1108,6 @@
   },
   {
     "category": "adulto",
-    "title": "Melissa Sun Downtown Platform Ii Ad (bege)",
-    "priceOriginal": 219.9,
-    "pricePromo": 87.9,
-    "sizes": "35",
-    "reference": "36129",
-    "imageFile": "36129-bege"
-  },
-  {
-    "category": "adulto",
     "title": "Melissa Sun Leblon Ad (preto)",
     "priceOriginal": 199.9,
     "pricePromo": 99.9,
@@ -1156,7 +1138,7 @@
     "title": "Melissa Sun Leblon Ad (bege)",
     "priceOriginal": 199.9,
     "pricePromo": 99.9,
-    "sizes": "35, 37, 38",
+    "sizes": "35, 38",
     "reference": "38062",
     "imageFile": "38062-bege"
   },
@@ -1174,7 +1156,7 @@
     "title": "Melissa Up Platform Ad (preto)",
     "priceOriginal": 319.9,
     "pricePromo": 159.9,
-    "sizes": "35, 37, 38",
+    "sizes": "35, 37",
     "reference": "37065",
     "imageFile": "37065-preto"
   },
@@ -1210,7 +1192,7 @@
     "title": "Melissa Yura Platform Ad (marrom/preto)",
     "priceOriginal": 319.9,
     "pricePromo": 159.9,
-    "sizes": "36, 37, 39/40",
+    "sizes": "37, 39/40",
     "reference": "38131",
     "imageFile": "38131-marrom-preto"
   },
@@ -1237,7 +1219,7 @@
     "title": "Mini Melissa Kick Off Sandal Inf (rosa)",
     "priceOriginal": 269.9,
     "pricePromo": 107.9,
-    "sizes": "26/27, 29",
+    "sizes": "26/27",
     "reference": "35692",
     "imageFile": "35692-rosa"
   },
@@ -1336,7 +1318,7 @@
     "title": "Melissa Aranha 79 Ii Ad (bege Transparente Fosco)",
     "priceOriginal": 199.9,
     "pricePromo": 99.9,
-    "sizes": "35, 36, 37",
+    "sizes": "36, 37",
     "reference": "38024",
     "imageFile": "38024-bege-transparente-fosco"
   },
@@ -1921,7 +1903,7 @@
     "title": "Mini Melissa Hip Butterfly Bb (rosa/verde)",
     "priceOriginal": 139.9,
     "pricePromo": 69.9,
-    "sizes": "17/18, 22",
+    "sizes": "22",
     "reference": "38043",
     "imageFile": "38043-rosa-verde"
   },
@@ -2011,7 +1993,7 @@
     "title": "Mini Melissa Joy Pets Bb (bege/preto)",
     "priceOriginal": 199.9,
     "pricePromo": 99.9,
-    "sizes": "20/21, 22, 23/24, 25",
+    "sizes": "20/21, 22, 25",
     "reference": "38034",
     "imageFile": "38034-bege-preto"
   },
@@ -2095,15 +2077,6 @@
     "sizes": "20/21, 22",
     "reference": "32834",
     "imageFile": "32834-rosa-rosa-glitter"
-  },
-  {
-    "category": "bebe",
-    "title": "Mini Melissa Jump Bb (marrom/azul/amarelo)",
-    "priceOriginal": 149.9,
-    "pricePromo": 74.9,
-    "sizes": "20/21",
-    "reference": "32834",
-    "imageFile": "32834-marrom-azul-amarelo"
   },
   {
     "category": "bebe",
@@ -2380,7 +2353,7 @@
     "title": "Mini Melissa Solar + Disney Princess (azul Perolado)",
     "priceOriginal": 199.9,
     "pricePromo": 99.9,
-    "sizes": "26/27, 29, 31, 32",
+    "sizes": "29, 31, 32",
     "reference": "37917",
     "imageFile": "37917-azul-perolado"
   },
